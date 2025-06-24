@@ -4,7 +4,9 @@ function create(result) {
     for (let i = 0; i < result * result; i++) {
         const square = document.createElement("div");
         square.classList.add("square");
+        const squareSize = 960 / result;
         container.appendChild(square);
+        square.style.cssText = `width: ${squareSize}px; height: ${squareSize}px;`;
         square.addEventListener("mouseenter", () => {
             function rcolor(){
                 return Math.floor(Math.random() * 256);
@@ -26,6 +28,7 @@ gridBtn.addEventListener("click", () => {
     while (result >100) {
         result = prompt("please enter a number less than 100!");
     }
+    container.innerHTML = "";
     create(result);
 })
 
